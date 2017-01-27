@@ -1,0 +1,60 @@
+# ImpEx for Importing Categories
+$storePrefix=virco
+# Macros / Replacement Parameter definitions
+$productCatalog=$storePrefixProductCatalog
+$productCatalogName=Virco Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=en
+
+# Create Categories
+#UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+UPDATE Category;$catalogVersion;code[unique=true];name[lang=$lang];description[lang=$lang]
+;;1;Products;
+
+;;2;Room Solutions;
+
+;;10;Chairs;
+;;11;Desks;
+;;12;Tables;
+;;13;Storage;
+;;14;Accessories;
+
+;;1001;Classroom;
+;;1002;STEAM Chairs;
+;;1003;Office Chairs;
+;;1004;Event Chairs;
+;;1005;Dining;
+;;1006;Chair Desks;
+
+;;1101;Student;
+;;1102;Collaborative;
+;;1103;Teacher;
+;;1104;Office Desks;
+
+;;1201;Activity;
+;;1202;Collaborative;
+;;1203;STEAM Tables;
+;;1204;Computer;
+;;1205;Training;
+;;1206;Event Tables;
+;;1207;Dining Tables;
+
+;;1301;Bookcases;
+;;1302;Filing Cabinetes;
+;;1303;Mobile Cabinetes;
+;;1304;Media Towers;
+
+;;1401;Chair Trucks;
+;;1402;Table Trucks;
+
+;;201;Early Learning;
+;;202;21st Century Classroom;
+;;203;STEAM Furniture;
+;;204;Higher Learning;
+;;205;Dining Furniture;
+;;206;Event Spaces;
+;;207;Office Furniture;
+;;208;Traditional Classroom;

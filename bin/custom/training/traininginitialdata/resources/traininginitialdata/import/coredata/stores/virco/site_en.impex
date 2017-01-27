@@ -1,0 +1,10 @@
+#
+# Import the CMS Site configuration for the store
+#
+$storePrefix=virco
+# Language
+$lang=en
+
+# Create CMS Site
+UPDATE CMSSite;uid[unique=true];name[lang=$lang];locale[lang=$lang]
+;virco;"virco Site";en_US

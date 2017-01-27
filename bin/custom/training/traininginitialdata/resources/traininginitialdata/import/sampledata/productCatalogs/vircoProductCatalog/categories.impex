@@ -1,0 +1,103 @@
+# ImpEx for Importing Categories
+$storePrefix=virco
+# Macros / Replacement Parameter definitions
+$productCatalog=$storePrefixProductCatalog
+$productCatalogName=Virco Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=source(code, $catalogVersion)[unique=true]
+$categories=target(code, $catalogVersion)[unique=true]
+
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+;1
+
+;2
+
+;10
+;11
+;12
+;13
+;14
+
+;1001
+;1002
+;1003
+;1004
+;1005
+;1006
+
+;1101
+;1102
+;1103
+;1104
+
+;1201
+;1202
+;1203
+;1204
+;1205
+;1206
+;1207
+
+;1301
+;1302
+;1303
+;1304
+
+;1401
+;1402
+
+;201
+;202
+;203
+;204
+;205
+;206
+;207
+;208
+
+# Insert Category Structure
+INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+;10;1
+;11;1
+;12;1
+;13;1
+;14;1
+
+;1001;10
+;1002;10
+;1003;10
+;1004;10
+;1005;10
+;1006;10
+
+;1101;11
+;1102;11
+;1103;11
+;1104;11
+
+;1201;12
+;1202;12
+;1203;12
+;1204;12
+;1205;12
+;1206;12
+;1207;12
+
+;1301;13
+;1302;13
+;1303;13
+;1304;13
+
+;1401;14
+;1402;14
+
+;201;2
+;202;2
+;203;2
+;204;2
+;205;2
+;206;2
+;207;2
+;208;2

@@ -1,0 +1,12 @@
+#
+# Import the BaseStore
+#
+$storePrefix=virco
+# Language
+$lang=en
+
+$storeUid=$storePrefix
+
+# Create Base Store
+UPDATE BaseStore;uid[unique=true];name[lang=$lang]
+;$storeUid;"virco Store"

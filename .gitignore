@@ -1,0 +1,60 @@
+/config
+!/config/local.properties
+!/config/localextensions.xml
+/data
+/licenses
+/log
+/sampleconfigurations
+/temp
+
+## hybris vanila
+/bin/platform
+/bin/ext-*
+
+## Generated stuff
+gensrc/
+gencss/
+eclipsebin/
+classes/
+testclasses/
+#jalo/
+platformhome.properties
+extensioninfo.xsd
+items.xsd
+hmc.xsd
+beans.xsd
+*-testclasses.xml
+*-webtestclasses.xml
+build.xml
+gencss/
+/bin/custom/*/*/web/*/*/messages/base.properties
+ruleset.xml
+web/testclasses/
+
+## Custom projects generated files
+/bin/custom/*/*/hmc/bin/
+/bin/custom/*/*/web/webroot/cockpit
+/bin/custom/*/*/web/webroot/cscockpit/
+/bin/custom/*/*/web/webroot/cmscockpit/
+/bin/custom/*/*/build.xml
+/bin/custom/*/*/web/addonsrc/*
+/bin/custom/*/*/web/*/*/addons
+/bin/custom/*/*/web/*/*/*/addons
+bin/custom/*/*/web/commonwebsrc/
+
+## Mac
+*.DS_Store
+.DS_Store
+*.class
+
+.metadata/
+
+## Unit test related
+junitvmwatcher*.properties
+
+## JetBrains IDEA
+.idea/
+*.iml
+
+## Eclipse
+com.eclipsesource.jshint.ui.prefs

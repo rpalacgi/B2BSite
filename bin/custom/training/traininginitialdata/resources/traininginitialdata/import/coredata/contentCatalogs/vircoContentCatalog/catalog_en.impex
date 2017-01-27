@@ -1,0 +1,10 @@
+#
+# Import the Content Catalog
+#
+$storePrefix=virco
+# Language
+$lang=en
+
+# Create Content Catalog
+UPDATE ContentCatalog;id[unique=true];name[lang=$lang]
+;$storePrefixContentCatalog;"Virco Content Catalog"
