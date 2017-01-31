@@ -1,18 +1,33 @@
 # ImpEx for Importing Products Stock Levels and Warehouses
 $storePrefix=virco
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
-$vendor=__VENDOR_NAME__
+$productCatalog=$storePrefixProductCatalog
+$productCatalogName=Virco Product Catalog
+$vendor=virco
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 
 INSERT_UPDATE Vendor;code[unique=true]
-#;$vendor
+;$vendor
 
 INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
+;virco_warehouse
 
 INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-2014;0
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-2016;0
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-162;0
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-162G;0
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-165;0
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-167;0
+;100;virco_warehouse;forceInStock;0;-1;0;0;M-168;0
 
 UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
+;M-2014;;M-2014:virco_warehouse;$vendor
+;M-2016;;M-2016:virco_warehouse;$vendor
+;M-162;;M-162:virco_warehouse;$vendor
+;M-162G;;M-162G:virco_warehouse;$vendor
+;M-165;;M-165:virco_warehouse;$vendor
+;M-167;;M-167:virco_warehouse;$vendor
+;M-168;;M-168:virco_warehouse;$vendor

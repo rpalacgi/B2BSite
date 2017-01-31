@@ -47,7 +47,7 @@ INSERT_UPDATE SiteMapConfig;&siteMapConfigId;configId[unique=true];siteMapLangua
 
 # CMS Site
 INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);urlPatterns;active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
-;$siteUid;blue;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$,(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$,(?i)^https?://api\.hybrisdev\.com(:[\d]+)?/rest/.*$,(?i)^https?://localhost(:[\d]+)?/rest/.*$;true;$storefrontContextRoot/?site=$siteUid;homepage;storefront,language
+;$siteUid;virco;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$,(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$,(?i)^https?://api\.hybrisdev\.com(:[\d]+)?/rest/.*$,(?i)^https?://localhost(:[\d]+)?/rest/.*$;true;$storefrontContextRoot/?site=$siteUid;homepage;storefront,language
 
 # Cart Cleanup CronJobs
 INSERT_UPDATE CartRemovalCronJob;code[unique=true];job(code)[default=cartRemovalJob];sites(uid)[default=$siteUid];sessionLanguage(isoCode)[default=en]

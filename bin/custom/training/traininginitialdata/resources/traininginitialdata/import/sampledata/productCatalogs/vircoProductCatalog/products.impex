@@ -10,4 +10,11 @@ $baseProduct=baseProduct(code,$catalogVersion)
 $approved=approvalstatus(code)[default='check']
 
 # Insert Products
-INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code)[default=pieces];$catalogVersion
+;M-2014;1001;M-2014;M-2014;0722868137406
+;M-2016;1002;M-2016;M-2016;065030781343
+;M-162;1003;M-162;M-162;028877574813
+;M-162G;1004;M-162G;M-162G;028877448688
+;M-165;1005;M-165;M-165;065030792622
+;M-167;1006;M-167;M-167;065030783866
+;M-168;1001;M-168;M-168;028877551258

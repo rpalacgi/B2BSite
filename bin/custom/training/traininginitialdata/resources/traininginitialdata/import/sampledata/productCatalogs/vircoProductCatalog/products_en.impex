@@ -1,8 +1,8 @@
 # ImpEx for Importing Product Localisations
 $storePrefix=virco
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
+$productCatalog=$storePrefixCatalog
+$productCatalogName=Virco Product Catalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
@@ -10,4 +10,12 @@ $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[defa
 $lang=en
 
 # Update allProducts with localisations
-UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+#UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+;M-2014;M-2014;Description for product M-2014;Summary gor product M-2014
+;M-2016;M-2016;Description for product M-2016;Summary gor product M-2016
+;M-162;M-162;Description for product M-162;Summary gor product M-162
+;M-162G;M-162G;Description for product M-162G;Summary gor product M-162G
+;M-165;M-165;Description for product M-165;Summary gor product M-165
+;M-167;M-167;Description for product M-167;Summary gor product M-167
+;M-168;M-168;Description for product M-168;Summary gor product M-168

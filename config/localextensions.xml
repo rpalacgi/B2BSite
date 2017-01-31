@@ -30,6 +30,8 @@
     <extension name='textfieldconfiguratortemplatebackoffice' />
     <extension name='textfieldconfiguratortemplateaddon' />
 
+    <extension name='hmc' />
+
     <!-- Custom -->
     <extension name='trainingcore'/>
     <extension name='trainingfacades'/>

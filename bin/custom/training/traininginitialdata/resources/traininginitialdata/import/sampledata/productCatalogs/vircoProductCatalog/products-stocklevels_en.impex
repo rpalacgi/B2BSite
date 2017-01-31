@@ -1,12 +1,14 @@
 # ImpEx for Importing Products Stock Levels and Warehouses
 # English localisation
 $storePrefix=virco
+$vendor=virco
 # Macros / Replacement Parameter definitions
 $lang=en
 
 # Update Vendor Name
 UPDATE Vendor;code[unique=true];name[lang=$lang]
+;$vendor;Virco
 
 # Update Warehouses
 UPDATE Warehouse;code[unique=true];name[lang=$lang]
-
+;virco_warehouse; Virco Warehouse

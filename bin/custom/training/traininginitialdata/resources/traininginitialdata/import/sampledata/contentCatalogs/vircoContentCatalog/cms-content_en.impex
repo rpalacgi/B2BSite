@@ -2,7 +2,7 @@
 # English Localisation
 $storePrefix=virco
 # Macros / Replacement Parameter definitions
-$contentCatalog=__CONTENT_CATALOG_NAME__
+$contentCatalog=$storePrefixContentCatalog
 
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $picture=media(code, $contentCV);

@@ -2,12 +2,13 @@
 # Create Warehouses for Store
 #
 $storePrefix=virco
-#% impex.setLocale( Locale.GERMAN );
+#% impex.setLocale( Locale.ENGLISH );
 
 # Macros / Replacement Parameter definitions
 $storeUid=$storePrefix
 
 INSERT_UPDATE BaseStore2WarehouseRel;source(uid)[unique=true];target(code)[unique=true]
+;$storeUid;virco_warehouse
 
 INSERT_UPDATE PointOfService;name[unique=true];displayName;warehouses(code);address(&addrID);latitude;longitude;geocodeTimestamp[dateformat=dd.MM.yyyy];type(code)[default=WAREHOUSE]
 

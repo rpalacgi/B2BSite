@@ -1,10 +1,10 @@
 # ImpEx for Importing CMS Content
 $storePrefix=virco
 # Macros / Replacement Parameter definitions
-$contentCatalog=__CONTENT_CATALOG_NAME__
-$contentCatalogName=__CONTENT_CATALOG_FULL_NAME__
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
+$contentCatalog=$storePrefixContentCatalog
+$contentCatalogName=Virco Content Catalog
+$productCatalog=$storePrefixProductCatalog
+$productCatalogName=Virco Product Catalog
 
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
@@ -16,10 +16,11 @@ $contentPage=contentPage(uid, $contentCV);
 $siteResource=jar:de.hybris.training.initialdata.setup.InitialDataSystemSetup&/traininginitialdata/import/contentCatalogs/$contentCatalog
 $productResource=jar:de.hybris.training.initialdata.setup.InitialDataSystemSetup&/traininginitialdata/import/productCatalogs/$productCatalog
 $jarResourceCms=jar:de.hybris.training.initialdata.setup.InitialDataSystemSetup&/traininginitialdata/import/cockpits/cmscockpit
-
+$siteUid=virco
 
 # CMS Site Settings
-UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV)
+UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV);theme(code)
+;$siteUid;1001;M-2014;virco
 
 # Site Logo
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;folder(qualifier)[default='images']
@@ -106,11 +107,37 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 # Category Page Restrictions
 INSERT_UPDATE CMSCategoryRestriction;$contentCV[unique=true];uid[unique=true];name;categories(code, $productCV);pages(uid, $contentCV)
 
-# CMS Navigation Nodes #
+###### Navigation Start ######
+## navigation is in tree structure ##
+## level 0 ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;children(uid,$contentCV)[mode=append]
+;root;;root;;
 
-# CMS Navigation Nodes
-INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+## level 1. SiteRoot ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
+;SiteRootNode;;SiteRootNode;root;;SiteRootNode
+
+## level 2. children of SiteRoot ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
+;VircoNavNode;;Virco Site;SiteRootNode;;VircoNavNode
+;MyAccountNavNode;;My Account Nav;SiteRootNode;;MyAccountNavNode
+;OrderToolsNavNode;;Order Tools Nav;SiteRootNode;;OrderToolsNavNode
+
+## level 3. children of Powertools Site ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
+;VircoDrillsNavNode;;Virco Drills Category;VircoNavNode;;VircoDrillsNavNode
+;AngleGrindersNavNode;;Angle Grinders Category;VircoNavNode;;AngleGrindersNavNode
+;SandersNavNode;;Sanders Category;VircoNavNode;;SandersNavNode
+;ScrewdriversNavNode;;Screwdrivers Category;VircoNavNode;;ScrewdriversNavNode
+;MeasuringLayoutToolsNavNode;;Measuring & Layout Tools Category;VircoNavNode;;MeasuringLayoutToolsNavNode
+;HandToolsNavNode;;Hand Tools Category Links;VircoNavNode;;HandToolsNavNode
+;SafetyNavNode;;Safety Category;VircoNavNode;;SafetyNavNode
+;HammersNavNode;;Hammers Category;VircoNavNode;;HammersNavNode
+
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
+;AcceleratorNavNode;;Accelerator Pages;VircoNavNode;AboutAcceleratorLink,DocumentationLink;AcceleratorNavNode
+;HybrisNavNode;;Hybris Pages;VircoNavNode;AboutHybrisLink,ContactUsLink;HybrisNavNode
+;FollowUsNavNode;;Follow Us Pages;VircoNavNode;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];navigationNode(&nodeRef);dropDownLayout(code)

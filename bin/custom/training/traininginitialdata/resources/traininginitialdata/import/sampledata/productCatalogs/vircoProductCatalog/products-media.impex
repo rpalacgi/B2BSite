@@ -1,7 +1,7 @@
 # ImPex for Importing Product Media
 $storePrefix=virco
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
+$productCatalog=$storePrefixCatalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog]
 $media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
@@ -17,10 +17,71 @@ $galleryImages=galleryImages(qualifier, $catalogVersion)
 $siteResource=jar:de.hybris.training.initialdata.setup.InitialDataSystemSetup&/traininginitialdata/import/productCatalogs/$productCatalog
 
 # Create Media
-INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/png'];$catalogVersion;folder(qualifier)[default=images]
+;1200Wx1200H;/1200Wx1200H/M-2014.png;$siteResource/images/1200Wx1200H/M-2014.png
+;1200Wx1200H;/1200Wx1200H/M-2016.png;$siteResource/images/1200Wx1200H/M-2016.png
+;1200Wx1200H;/1200Wx1200H/M-162.png;$siteResource/images/1200Wx1200H/M-162.png
+;1200Wx1200H;/1200Wx1200H/M-162G.png;$siteResource/images/1200Wx1200H/M-162G.png
+;1200Wx1200H;/1200Wx1200H/M-165.png;$siteResource/images/1200Wx1200H/M-165.png
+;1200Wx1200H;/1200Wx1200H/M-167.png;$siteResource/images/1200Wx1200H/M-167.png
+;1200Wx1200H;/1200Wx1200H/M-168.png;$siteResource/images/1200Wx1200H/M-168.png
+
+;515Wx515H;/515Wx515H/M-2014.png;$siteResource/images/515Wx515H/M-2014.png
+;515Wx515H;/515Wx515H/M-2016.png;$siteResource/images/515Wx515H/M-2016.png
+;515Wx515H;/515Wx515H/M-162.png;$siteResource/images/515Wx515H/M-162.png
+;515Wx515H;/515Wx515H/M-162G.png;$siteResource/images/515Wx515H/M-162G.png
+;515Wx515H;/515Wx515H/M-165.png;$siteResource/images/515Wx515H/M-165.png
+;515Wx515H;/515Wx515H/M-167.png;$siteResource/images/515Wx515H/M-167.png
+;515Wx515H;/515Wx515H/M-168.png;$siteResource/images/515Wx515H/M-168.png
+
+;300Wx300H;/300Wx300H/M-2014.png;$siteResource/images/300Wx300H/M-2014.png
+;300Wx300H;/300Wx300H/M-2016.png;$siteResource/images/300Wx300H/M-2016.png
+;300Wx300H;/300Wx300H/M-162.png;$siteResource/images/300Wx300H/M-162.png
+;300Wx300H;/300Wx300H/M-162G.png;$siteResource/images/300Wx300H/M-162G.png
+;300Wx300H;/300Wx300H/M-165.png;$siteResource/images/300Wx300H/M-165.png
+;300Wx300H;/300Wx300H/M-167.png;$siteResource/images/300Wx300H/M-167.png
+;300Wx300H;/300Wx300H/M-168.png;$siteResource/images/300Wx300H/M-168.png
+
+;96Wx96H;/96Wx96H/M-2014.png;$siteResource/images/96Wx96H/M-2014.png
+;96Wx96H;/96Wx96H/M-2016.png;$siteResource/images/96Wx96H/M-2016.png
+;96Wx96H;/96Wx96H/M-162.png;$siteResource/images/96Wx96H/M-162.png
+;96Wx96H;/96Wx96H/M-162G.png;$siteResource/images/96Wx96H/M-162G.png
+;96Wx96H;/96Wx96H/M-165.png;$siteResource/images/96Wx96H/M-165.png
+;96Wx96H;/96Wx96H/M-167.png;$siteResource/images/96Wx96H/M-167.png
+;96Wx96H;/96Wx96H/M-168.png;$siteResource/images/96Wx96H/M-168.png
+
+;65Wx65H;/65Wx65H/M-2014.png;$siteResource/images/65Wx65H/M-2014.png
+;65Wx65H;/65Wx65H/M-2016.png;$siteResource/images/65Wx65H/M-2016.png
+;65Wx65H;/65Wx65H/M-162.png;$siteResource/images/65Wx65H/M-162.png
+;65Wx65H;/65Wx65H/M-162G.png;$siteResource/images/65Wx65H/M-162G.png
+;65Wx65H;/65Wx65H/M-165.png;$siteResource/images/65Wx65H/M-165.png
+;65Wx65H;/65Wx65H/M-167.png;$siteResource/images/65Wx65H/M-167.png
+;65Wx65H;/65Wx65H/M-168.png;$siteResource/images/65Wx65H/M-168.png
+
+;30Wx30H;/30Wx30H/M-2014.png;$siteResource/images/30Wx30H/M-2014.png
+;30Wx30H;/30Wx30H/M-2016.png;$siteResource/images/30Wx30H/M-2016.png
+;30Wx30H;/30Wx30H/M-162.png;$siteResource/images/30Wx30H/M-162.png
+;30Wx30H;/30Wx30H/M-162G.png;$siteResource/images/30Wx30H/M-162G.png
+;30Wx30H;/30Wx30H/M-165.png;$siteResource/images/30Wx30H/M-165.png
+;30Wx30H;/30Wx30H/M-167.png;$siteResource/images/30Wx30H/M-167.png
+;30Wx30H;/30Wx30H/M-168.png;$siteResource/images/30Wx30H/M-168.png
 
 # Create Media Containers
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;M-2014.png;/1200Wx1200H/M-2014.png,/515Wx515H/M-2014.png,/300Wx300H/M-2014.png,/96Wx96H/M-2014.png,/65Wx65H/M-2014.png,/30Wx30H/M-2014.png
+;M-2016.png;/1200Wx1200H/M-2016.png,/515Wx515H/M-2016.png,/300Wx300H/M-2016.png,/96Wx96H/M-2016.png,/65Wx65H/M-2016.png,/30Wx30H/M-2016.png
+;M-162.png;/1200Wx1200H/M-162.png,/515Wx515H/M-162.png,/300Wx300H/M-162.png,/96Wx96H/M-162.png,/65Wx65H/M-162.png,/30Wx30H/M-162.png
+;M-162G.png;/1200Wx1200H/M-162G.png,/515Wx515H/M-162G.png,/300Wx300H/M-162G.png,/96Wx96H/M-162G.png,/65Wx65H/M-162G.png,/30Wx30H/M-162G.png
+;M-165.png;/1200Wx1200H/M-165.png,/515Wx515H/M-165.png,/300Wx300H/M-165.png,/96Wx96H/M-165.png,/65Wx65H/M-165.png,/30Wx30H/M-165.png
+;M-167.png;/1200Wx1200H/M-167.png,/515Wx515H/M-167.png,/300Wx300H/M-167.png,/96Wx96H/M-167.png,/65Wx65H/M-167.png,/30Wx30H/M-167.png
+;M-168.png;/1200Wx1200H/M-168.png,/515Wx515H/M-168.png,/300Wx300H/M-168.png,/96Wx96H/M-168.png,/65Wx65H/M-168.png,/30Wx30H/M-168.png
 
 # Update Products with Media and Media Containers
 UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
+;M-2014;/300Wx300H/M-2014.png;/96Wx96H/M-2014.png;/1200Wx1200H/M-2014.png;/515Wx515H/M-2014.png,/65Wx65H/M-2014.png,/30Wx30H/M-2014.png;/300Wx300H/30Wx30H/M-2014.png;/96Wx96H/30Wx30H/M-2014.png;30Wx30H/M-2014.png
+;M-2016;/300Wx300H/M-2016.png;/96Wx96H/M-2016.png;/1200Wx1200H/M-2016.png;/515Wx515H/M-2016.png,/65Wx65H/M-2016.png,/30Wx30H/M-2016.png;/300Wx300H/M-2016.png;/96Wx96H/M-2016.png;M-2016.png
+;M-162;/300Wx300H/M-162.png;/96Wx96H/M-162.png;/1200Wx1200H/M-162.png;/515Wx515H/M-162.png,/65Wx65H/M-162.png,/30Wx30H/M-162.png;/300Wx300H/M-162.png;/96Wx96H/M-162.png;M-162.png
+;M-162G;/300Wx300H/M-162G.png;/96Wx96H/M-162G.png;/1200Wx1200H/M-162G.png;/515Wx515H/M-162G.png,/65Wx65H/M-162G.png,/30Wx30H/M-162G.png;/300Wx300H/M-162G.png;/96Wx96H/M-162G.png;M-162G.png
+;M-165;/300Wx300H/M-165.png;/96Wx96H/M-165.png;/1200Wx1200H/M-165.png;/515Wx515H/M-165.png,/65Wx65H/M-165.png,/30Wx30H/M-165.png;/300Wx300H/M-165.png;/96Wx96H/M-165.png;M-165.png
+;M-167;/300Wx300H/M-167.png;/96Wx96H/M-167.png;/1200Wx1200H/M-167.png;/515Wx515H/M-167.png,/65Wx65H/M-167.png,/30Wx30H/M-167.png;/300Wx300H/M-167.png;/96Wx96H/M-167.png;M-167.png
+;M-168;/300Wx300H/M-168.png;/96Wx96H/M-168.png;/1200Wx1200H/M-168.png;/515Wx515H/M-168.png,/65Wx65H/M-168.png,/30Wx30H/M-168.png;/300Wx300H/M-168.png;/96Wx96H/M-168.png;M-168.png
