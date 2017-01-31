@@ -1,0 +1,49 @@
+<hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
+  <extensions>
+    <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
+    <extension name='mcc' />
+    <extension name='backoffice' />
+    <extension name='commercesearchbackoffice' />
+    <extension name='commerceservicesbackoffice' />
+    <extension name='solrfacetsearchbackoffice' />
+    <extension name='solrserver' />
+    <extension name='ycommercewebservices' />
+    <extension name='liveeditaddon' />
+    <extension name='acceleratorwebservicesaddon' />
+    <extension name='customersupportbackoffice' />
+    <extension name='commerceorgsamplesaddon' />
+    <extension name='rulebuilderbackoffice' />
+    <extension name='couponbackoffice' />
+    <extension name='droolsruleengineservices' />
+    <extension name='couponfacades' />
+    <extension name='promotionenginesamplesaddon' />
+    <extension name='cmswebservices' />
+    <extension name='smarteditwebservices' />
+    <extension name='previewwebservices' />
+    <extension name='permissionswebservices' />
+    <extension name='smarteditaddon' />
+    <extension name='cmssmartedit' />
+    <extension name='previewpersonalizationweb' />
+    <extension name='personalizationcmsweb' />
+    <extension name='personalizationsmartedit' />
+    <extension name='personalizationsampledataaddon' />
+    <extension name='textfieldconfiguratortemplatebackoffice' />
+    <extension name='textfieldconfiguratortemplateaddon' />
+
+    <!-- Custom -->
+    <extension name='trainingcore'/>
+    <extension name='trainingfacades'/>
+    <extension name='trainingstorefront'/>
+    <extension name='traininginitialdata'/>
+    <extension name='trainingtest'/>
+    <extension name='trainingcockpits'/>
+    <extension name='trainingfulfilmentprocess'/>
+
+    <extension name='powertoolsstore' />
+    <extension name='b2bcommercebackoffice' />
+    <extension name='b2badmincockpit' />
+    <extension name='b2bacceleratoraddon' />
+    <extension name='commerceorgaddon' />
+
+  </extensions>
+</hybrisconfig>

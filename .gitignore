@@ -1,4 +1,4 @@
-/config
+/config/*
 !/config/local.properties
 !/config/localextensions.xml
 /data
