@@ -125,19 +125,32 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 
 ## level 3. children of Powertools Site ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
-;VircoDrillsNavNode;;Virco Drills Category;VircoNavNode;;VircoDrillsNavNode
-;AngleGrindersNavNode;;Angle Grinders Category;VircoNavNode;;AngleGrindersNavNode
-;SandersNavNode;;Sanders Category;VircoNavNode;;SandersNavNode
-;ScrewdriversNavNode;;Screwdrivers Category;VircoNavNode;;ScrewdriversNavNode
-;MeasuringLayoutToolsNavNode;;Measuring & Layout Tools Category;VircoNavNode;;MeasuringLayoutToolsNavNode
-;HandToolsNavNode;;Hand Tools Category Links;VircoNavNode;;HandToolsNavNode
-;SafetyNavNode;;Safety Category;VircoNavNode;;SafetyNavNode
-;HammersNavNode;;Hammers Category;VircoNavNode;;HammersNavNode
+;RoomSolutionsNode;;Room Solutions Nav;VircoNavNode;;RoomSolutionsNode
+;ProductsNode;;Products Nav;VircoNavNode;;ProductsNode
+;DiscoverVircoNode;;Discover Virco Nav;VircoNavNode;;DiscoverVircoNode
+;ResourcesNode;;Resources Nav;VircoNavNode;;ResourcesNode
+;FindUsNode;;Find Us Nav;VircoNavNode;;FindUsNode
 
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
 ;AcceleratorNavNode;;Accelerator Pages;VircoNavNode;AboutAcceleratorLink,DocumentationLink;AcceleratorNavNode
 ;HybrisNavNode;;Hybris Pages;VircoNavNode;AboutHybrisLink,ContactUsLink;HybrisNavNode
 ;FollowUsNavNode;;Follow Us Pages;VircoNavNode;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode
+
+## links of the above navigation nodes ##
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow']
+;;AboutAcceleratorLink;About Accelerator Link;"http://www.hybris.com/multichannel-accelerator";AboutAcceleratorLink;AboutAcceleratorLink;newWindow
+;;DocumentationLink;Documentation Link;"https://wiki.hybris.com/display/release5/Release+5+Documentation+Home";DocumentationLink;DocumentationLink;newWindow
+;;AboutHybrisLink;About Hybris Link;"http://www.hybris.com";AboutHybrisLink;AboutHybrisLink;newWindow
+;;ContactUsLink;Contact Us Link;"http://www.hybris.com/contact";ContactUsLink;ContactUsLink;newWindow
+;;AgileCommerceBlogLink;Agile Commerce Blog Link;"http://www.agile-commerce.com/";AgileCommerceBlogLink;AgileCommerceBlogLink;newWindow
+;;LinkedInLink;Linked In Link;"http://www.linkedin.com/company/97435";LinkedInLink;LinkedInLink;newWindow
+;;FacebookLink;Facebook Link;"http://www.facebook.com/hybrissoftware";FacebookLink;FacebookLink;newWindow
+;;TwitterLink;Twitter Link;"http://twitter.com/#!/hybris_software";TwitterLink;TwitterLink;newWindow
+
+## level 4. children of level 3 nodes ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&componentRef);&nodeRef
+;RoomSolutionsLinksNavNode;;Room Solutions Category Links;RoomSolutionsNode;HandSawsCategoryLink,JigsawsCategoryLink,NutDriversCategoryLink,RotaryHammersCategoryLink,StrippingToolsCategoryLink,PunchesCategoryLink;RoomSolutionsLinksNavNode
+
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];navigationNode(&nodeRef);dropDownLayout(code)
